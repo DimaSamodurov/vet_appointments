@@ -3,7 +3,7 @@ require 'google/apis/calendar_v3'
 class GoogleCalendar
   Calendar = Google::Apis::CalendarV3
 
-  def self.list(options)
+  def self.list_events(options)
     calendar = Calendar::CalendarService.new
     calendar.authorization = user_credentials_for(Calendar::AUTH_CALENDAR)
 
@@ -36,7 +36,7 @@ class GoogleCalendar
 
   def self.user_credentials_for(scope)
     authorizer = Google::Auth::ServiceAccountCredentials.make_creds(
-      json_key_io: File.open(File.expand_path(ENV['GOOGLE_SERVICE_ACCOUNT_SECRETS'])), scope: scope)
+      json_key_io: File.open(File.expand_path(ENV.fetch('GOOGLE_SERVICE_ACCOUNT_SECRETS'))), scope: scope)
     authorizer.fetch_access_token!
     authorizer
   end
