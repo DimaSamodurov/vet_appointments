@@ -1,14 +1,35 @@
 import React from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import events from './events';
+//import events from './events';
 
 // Setup the localizer by providing the moment (or globalize) Object
 // to the correct localizer.
 BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
 
-let Calendar = React.createClass({
-  render(){
+class Calendar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {events: []};
+  }
+
+  componentDidMount() {
+    fetch('/api/v1/calendar/events/uzd.json')
+      .then(response => response.json())
+      .then(json => {
+        this.setState({events: json.map(event => this.transform(event))})
+      })
+  }
+
+  transform(event) {
+    return {
+      'start': new Date(event.start),
+      'end': new Date(event.end),
+      'title': event.title
+    }
+  }
+
+  render() {
     return (
       <div {...this.props}>
         <h3 className="callout">
@@ -17,10 +38,8 @@ let Calendar = React.createClass({
         </h3>
         <BigCalendar
           selectable
-          events={events}
+          events={this.state.events}
           defaultView='week'
-          scrollToTime={new Date(1970, 1, 1, 6)}
-          defaultDate={new Date(2015, 3, 12)}
           onSelectEvent={event => alert(event.title)}
           onSelectSlot={(slotInfo) => alert(
             `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
@@ -30,6 +49,6 @@ let Calendar = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default Calendar;

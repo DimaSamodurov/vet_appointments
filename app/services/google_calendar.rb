@@ -17,8 +17,7 @@ class GoogleCalendar
                                     single_events: true,
                                     order_by: 'startTime',
                                     time_min: start,
-                                    page_token: page_token,
-                                    fields: 'items(id,summary,start),next_page_token')
+                                    page_token: page_token)
 
       events.push *result.items
 
