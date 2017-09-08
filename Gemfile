@@ -13,7 +13,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -31,9 +31,16 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# CSS engine
+gem 'foundation-rails', '~> 6.4', github: 'zurb/foundation-rails'
 # Templating engine
-gem "slim-rails"
-
+gem 'slim-rails'
+# Form authoring
+gem 'simple_form'
+# Load Environment files
+gem 'dotenv-rails'
+# Access Google API
+gem 'google-api-client', '~> 0.11'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -54,5 +61,4 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'dotenv-rails'
-gem 'google-api-client', '~> 0.11'
+
