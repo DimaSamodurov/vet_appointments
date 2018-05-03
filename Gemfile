@@ -32,7 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # CSS engine
-gem 'foundation-rails', '~> 6.4', github: 'zurb/foundation-rails'
 # Templating engine
 gem 'slim-rails'
 # Form authoring
