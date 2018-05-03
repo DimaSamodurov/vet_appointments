@@ -1,11 +1,13 @@
 import React from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-//import events from './events';
+import events from './events';
 
 // Setup the localizer by providing the moment (or globalize) Object
 // to the correct localizer.
 BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
+
+// let allViews = Object.keys(BigCalendar.views).map(k => BigCalendar.views[k])
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -36,11 +38,12 @@ class Calendar extends React.Component {
           Click an event to see more info, or
           drag the mouse over the calendar to select a date/time range.
         </h3>
+
         <BigCalendar
           selectable
           events={this.state.events}
           defaultView='week'
-          onSelectEvent={event => alert(event.title)}
+          defaultDate={new Date()}
           onSelectSlot={(slotInfo) => alert(
             `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
             `\nend: ${slotInfo.end.toLocaleString()}`

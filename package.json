@@ -3,14 +3,22 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
+    "async": "^2.5.0",
+    "axios": "^0.16.2",
+
     "babel-preset-react": "^6.24.1",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-big-calendar":"^0.15.0",
+    "react-dom": "latest",
+    "react": "latest",
+    "prop-types": "latest",
+    "react-big-calendar":"latest",
     "moment":"^2.18.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "material-ui": "next",
+    "normalize.css": "^7.0.0",
+    "material-ui-pickers": "^1.0.0-rc.6",
+    "@material-ui/icons": "latest"
   }
 }

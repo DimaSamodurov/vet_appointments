@@ -7,5 +7,5 @@ import Calendar from 'components/calendar'
 
 document.addEventListener("DOMContentLoaded", e => {
   ReactDOM.render(<Calendar className="calendar"/>,
-    document.body.appendChild(document.createElement('div')))
+    document.getElementById('calendar'))
 })

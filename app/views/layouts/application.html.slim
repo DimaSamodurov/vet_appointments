@@ -7,9 +7,12 @@ html lang="en"
     title == content_for?(:title) ? yield(:title) : "Untitled"
 
     = stylesheet_link_tag "application"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => false
+    = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
     = csrf_meta_tag
+    == yield :head
 
   body
 
     == yield
+    == yield :javascript
